@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+a {
+  color: bisque;
+  text-decoration: none;
+}
+
+.active, a:hover {
+  color: rgb(250, 163, 255);
+}
