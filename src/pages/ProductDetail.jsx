@@ -1,9 +1,9 @@
 import React from "react";
-import { json, useLoaderData, Link } from "react-router-dom";
+import { json, useRouteLoaderData, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
 
 export default function ProductDetail() {
-  const data = useLoaderData();
+  const data = useRouteLoaderData('product-detail');
   return (
     <>
       <div className={styles.card}>
@@ -17,6 +17,9 @@ export default function ProductDetail() {
 
       <Link to=".." relative='path'>
         Back
+      </Link>
+      <Link to="edit">
+        Edit
       </Link>
     </>
   );

@@ -1,14 +1,20 @@
 import React from "react";
 import Navigation from "../components/Navigation";
-import { useRouteError } from "react-router-dom";
+import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 
 export default function Error() {
   const error = useRouteError();
 
-  let message = 'Something went wrong'
+  console.log(isRouteErrorResponse(error));
 
-  if(error.status === 500){
-    message = error.data.message
+  let message = "Something went wrong";
+
+  if (error.status === 500) {
+    message = error.data.message;
+  }
+
+  if (error.status === 404) {
+    message = "Could not found anything on this route";
   }
 
   return (

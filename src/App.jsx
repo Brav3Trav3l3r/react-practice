@@ -6,6 +6,7 @@ import ProductDetail, {
   loader as fetchProductDetail,
 } from "./pages/ProductDetail";
 import Error from "./pages/Error";
+import ProductEdit from "./pages/ProductEdit";
 
 const router = createBrowserRouter([
   {
@@ -14,11 +15,23 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home /> },
-      { path: "products", element: <Products />, loader: fetchProducts },
+      {
+        path: "products",
+        element: <Products />,
+        loader: fetchProducts,
+        children: [],
+      },
       {
         path: "products/:id",
-        element: <ProductDetail />,
+        id: "product-detail",
         loader: fetchProductDetail,
+        children: [
+          { index: true, element: <ProductDetail /> },
+          {
+            path: "edit",
+            element: <ProductEdit />,
+          },
+        ],
       },
     ],
   },
